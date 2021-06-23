@@ -10,9 +10,7 @@ for (let i = 0; i < SQUARES_NUMBER; i++) {
     square.addEventListener('mouseover', () => {
         setColor(square)
     })
-    square.addEventListener('mouseleave', () => {
-        removeColor(square)
-    })
+    square.addEventListener('mouseleave', removeColor)
 
     board.append(square)
 }
@@ -24,7 +22,8 @@ function setColor(element) {
 
 }
 
-function removeColor(element) {
+function removeColor(event) {
+    const element = event.target
     element.style.background = '#1d1d1d'
     element.style.boxShadow = `0 0 2px #000`
 }
